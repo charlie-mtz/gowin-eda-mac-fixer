@@ -25,8 +25,46 @@ sudo xattr -cr $GOWIN_EDA_DIR
 # Add RPATH to local lib directory relative to the executable path
 install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gw_ide
 install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gw_ide
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/GowinSynthesis
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/GowinSynthesis
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/floorplanner
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/floorplanner
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gao_analyzer
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gao_analyzer
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gao_sh
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gao_sh
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gvio_analyzer
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gvio_analyzer
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gvio_sh
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gvio_sh
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gw_ctrl_reg
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gw_ctrl_reg
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gw_fsrst_gui
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gw_fsrst_gui
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gw_pkgviewer
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gw_pkgviewer
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gw_sdceditor
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gw_sdceditor
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/gw_sh
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/gw_sh
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/hierarchy
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/hierarchy
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/nlsresource
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/nlsresource
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/rtlHierTest
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/rtlHierTest
+install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/vlg_pp
+install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/vlg_pp
 
 # Fix Tcl framework references to built-in version instead of system version
+install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/bin/GowinModgen
+install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/bin/GowinSynthesis
+install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/bin/gw_sdceditor
+install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/bin/gw_sh
+install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/bin/hierarchy
+install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/bin/nlsresource
+install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/bin/rtlHierTest
+install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/bin/vlg_pp
 install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/plugins/ide/libGAOIns.dylib
 install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/plugins/ide/libRtlGAOIns.dylib
 install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/plugins/ide/libGPC.dylib
@@ -48,6 +86,15 @@ install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rp
 
 # Fix libcrypto references to built-in version instead of system version
 install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/gw_ide
+install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/GowinModgen
+install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/GowinSynthesis
+install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/gw_sdceditor
+install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/gw_sh
+install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/hierarchy
+install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/license_config_gui
+install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/nlsresource
+install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/rtlHierTest
+install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/bin/vlg_pp
 install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/lib/libgowin.dylib
 install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/lib/libgwsyn.dylib
 install_name_tool -change /opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib @rpath/libcrypto.3.dylib $GOWIN_EDA_DIR/IDE/lib/libNlsData.dylib
