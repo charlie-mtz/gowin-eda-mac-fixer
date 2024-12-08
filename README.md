@@ -4,7 +4,7 @@
 
 ## Description
 
-Gowin has released a macOS version of their Gowin EDA package (Education version). Unfortunately it is badly linked (containes links to dynamic libraries outside the package) and is not provided in a macOS App format.
+Gowin has released a macOS version of their Gowin EDA package (Education version). Unfortunately it is badly linked (contains links to dynamic libraries outside the package) and is not provided in a macOS App format.
 
 This scripts remedies both issues, automatically unpacking the `.tar.gz` file provided by Gowin, fixing the dynamic library links in the provided binaries using `install_name_tool`, and packing everything inside a nice to use App bundle.
 
