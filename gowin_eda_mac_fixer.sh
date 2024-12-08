@@ -55,6 +55,12 @@ install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/rtlH
 install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/rtlHierTest
 install_name_tool -add_rpath @executable_path/../lib $GOWIN_EDA_DIR/IDE/bin/vlg_pp
 install_name_tool -delete_rpath '$ORIGIN:$ORIGIN/../lib' $GOWIN_EDA_DIR/IDE/bin/vlg_pp
+install_name_tool -add_rpath '@executable_path/../lib' $GOWIN_EDA_DIR/IDE/bin/Assistant
+install_name_tool -delete_rpath '@executable_path/../Frameworks' $GOWIN_EDA_DIR/IDE/bin/Assistant
+install_name_tool -delete_rpath '@loader_path/../../../../lib' $GOWIN_EDA_DIR/IDE/bin/Assistant
+
+# Ad-hoc codesign Assistant binary
+codesign -s - -f $GOWIN_EDA_DIR/IDE/bin/Assistant
 
 # Fix Tcl framework references to built-in version instead of system version
 install_name_tool -change /Library/Frameworks/Tcl.framework/Versions/8.6/Tcl @rpath/Tcl.framework/Versions/8.6/Tcl $GOWIN_EDA_DIR/IDE/bin/GowinModgen
