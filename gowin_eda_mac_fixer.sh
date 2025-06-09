@@ -138,7 +138,7 @@ mkdir "$GOWIN_EDA_APP_BUNDLE.app/Contents/MacOS"
 <plist version="1.0">
 <dict>
   <key>CFBundleName</key>
-  <string>Car2PhoneLogAnalyzer</string>
+  <string>GowinEDA</string>
   <key>CFBundleExecutable</key>
   <string>starter</string>
   <key>CFBundleIdentifier</key>
